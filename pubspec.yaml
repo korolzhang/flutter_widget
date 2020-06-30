@@ -1,0 +1,82 @@
+name: flutter_widget_project
+description: A new Flutter application.
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+  flame: ^0.21.0
+  #获取联系人
+  easy_contact_picker: ^0.0.2
+  #获取权限
+  permission_handler: ^5.0.0+hotfix.8
+  #表格布局
+  flutter_staggered_grid_view: ^0.3.0
+  fl_radial_menu: ^0.0.2+2
+  flutter_icons: ^1.1.0
+  tinder_card: ^0.1.1
+  flushbar: ^1.10.4
+  flutter_typeahead: ^1.8.1
+  #轮播
+  snaplist: ^0.1.8
+  pin_code_text_field: ^1.6.0
+  folding_cell: ^0.1.2
+  liquid_pull_to_refresh: ^2.0.0
+  slide_container: ^1.1.3
+  direct_select_flutter: ^1.0.6
+  before_after: ^2.0.1
+
+  #网络请求
+  dio: ^3.0.9
+  #提示
+  fluttertoast: ^4.0.1
+  #保存
+  shared_preferences: ^0.5.7+3
+  flutter_aes: ^0.1.1
+
+dev_dependencies:
+  #序列化
+  build_runner: ^1.7.1
+  json_serializable: ^3.2.3
+  flutter_launcher_icons: ^0.7.3
+  flame_splash_screen: 0.0.1
+  flutter_test:
+    sdk: flutter
+
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  fonts:
+    - family: Sriracha
+      fonts:
+        - asset: fonts/Sriracha/Sriracha-Regular.ttf
+
+
+  assets:
+    - assets/images/a.jpg
+    - assets/images/b.jpg
+    - assets/images/c.jpg
+    - assets/images/icon_none.png
+
+
+  uses-material-design: true
+
