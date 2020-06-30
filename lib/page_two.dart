@@ -6,6 +6,7 @@ import 'package:flutter_widget_project/page_three.dart';
 import 'package:flutter_widget_project/pin_code_text_field_page.dart';
 import 'package:flutter_widget_project/slide_container_page.dart';
 import 'package:flutter_widget_project/snap_list_page.dart';
+import 'package:flutter_widget_project/tabbar/tab_view_one.dart';
 import 'package:flutter_widget_project/tinder_card_page.dart';
 import 'package:flutter_widget_project/widget/direct_select_flutter2_page.dart';
 import 'package:flutter_widget_project/widget/permission_view.dart';
@@ -164,6 +165,13 @@ class _PageTwoState extends State<PageTwo> {
               color: Color(0xffcccccc),
               onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_){
                 return DioPage();
+              })),
+            ),
+            FlatButton(
+              child: Text("TabViewOne"),
+              color: Color(0xffcccccc),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                return TabViewOne();
               })),
             ),
 
