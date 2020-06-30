@@ -133,7 +133,7 @@ class _DioPageState extends State<DioPage> with PageMini{
                   children:  dataList.map((item){
                     EntrustModel dataModel = item;
                     return ListTile(
-                      title: Text("${dataModel.Id}"),
+                      title:  Text("${dataModel.Id}"),
                     );
                   }).toList(),
                 )
