@@ -3,6 +3,8 @@ import 'package:flutter_widget_project/page_one.dart';
 import 'package:flutter_widget_project/page_three.dart';
 import 'package:flutter_widget_project/page_two.dart';
 
+
+///普通的tabbar+tabbarview
 class TabViewOne extends StatefulWidget {
   @override
   _TabViewOneState createState() => _TabViewOneState();
