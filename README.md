@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # flutter_widget_project
 
 A new Flutter application.
@@ -14,3 +15,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# flutter_widget
+>>>>>>> d6445bd7a4e7578a0116084b7a26351d5a7ca727
