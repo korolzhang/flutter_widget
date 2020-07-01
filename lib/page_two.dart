@@ -6,6 +6,10 @@ import 'package:flutter_widget_project/page_three.dart';
 import 'package:flutter_widget_project/pin_code_text_field_page.dart';
 import 'package:flutter_widget_project/slide_container_page.dart';
 import 'package:flutter_widget_project/snap_list_page.dart';
+import 'package:flutter_widget_project/stream/broadcast_stream_page.dart';
+import 'package:flutter_widget_project/stream/net_status_page.dart';
+import 'package:flutter_widget_project/stream/stream_one_page.dart';
+import 'package:flutter_widget_project/stream/stream_oprote_page.dart';
 import 'package:flutter_widget_project/tabbar/tab_view_one.dart';
 import 'package:flutter_widget_project/tabbar/tab_view_two.dart';
 import 'package:flutter_widget_project/tinder_card_page.dart';
@@ -182,6 +186,37 @@ class _PageTwoState extends State<PageTwo> {
                 return TabViewTwo();
               })),
             ),
+
+            FlatButton(
+              child: Text("StreamOne"),
+              color: Color(0xffcccccc),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                return StreamOnePage();
+              })),
+            ),
+            FlatButton(
+              child: Text("Stream-NetStatus"),
+              color: Color(0xffcccccc),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                return NetStatusPage();
+              })),
+            ),
+            FlatButton(
+              child: Text("Stream-Broadcase"),
+              color: Color(0xffcccccc),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                return BroadcastStreamPage();
+              })),
+            ),
+
+            FlatButton(
+              child: Text("Stream-Opr"),
+              color: Color(0xffcccccc),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                return StreamOprPage();
+              })),
+            ),
+
 
 
             SizedBox(height: 50,),
