@@ -4,6 +4,7 @@ import 'package:flutter_widget_project/dio_page.dart';
 import 'package:flutter_widget_project/flush_bar_page.dart';
 import 'package:flutter_widget_project/page_three.dart';
 import 'package:flutter_widget_project/pin_code_text_field_page.dart';
+import 'package:flutter_widget_project/rxdart/rxdart_page.dart';
 import 'package:flutter_widget_project/slide_container_page.dart';
 import 'package:flutter_widget_project/snap_list_page.dart';
 import 'package:flutter_widget_project/stream/broadcast_stream_page.dart';
@@ -17,6 +18,7 @@ import 'package:flutter_widget_project/widget/direct_select_flutter2_page.dart';
 import 'package:flutter_widget_project/widget/permission_view.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'direct_select_flutter_page.dart';
+import 'event_bus/event_bus_page.dart';
 import 'flutter_typed_head_page.dart';
 import 'folding_cell_page.dart';
 import 'liquid_pull_refresh_page.dart';
@@ -216,8 +218,21 @@ class _PageTwoState extends State<PageTwo> {
                 return StreamOprPage();
               })),
             ),
+            FlatButton(
+              child: Text("rxdart"),
+              color: Color(0xffcccccc),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                return RxDartPage();
+              })),
+            ),
 
-
+            FlatButton(
+              child: Text("eventbus"),
+              color: Color(0xffcccccc),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                return EventBusPage();
+              })),
+            ),
 
             SizedBox(height: 50,),
           ],
