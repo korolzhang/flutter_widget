@@ -4,6 +4,7 @@ import 'package:flutter_widget_project/dio_page.dart';
 import 'package:flutter_widget_project/flush_bar_page.dart';
 import 'package:flutter_widget_project/page_three.dart';
 import 'package:flutter_widget_project/pin_code_text_field_page.dart';
+import 'package:flutter_widget_project/provider/theme_model.dart';
 import 'package:flutter_widget_project/rxdart/rxdart_page.dart';
 import 'package:flutter_widget_project/slide_container_page.dart';
 import 'package:flutter_widget_project/snap_list_page.dart';
@@ -15,8 +16,8 @@ import 'package:flutter_widget_project/tabbar/tab_view_one.dart';
 import 'package:flutter_widget_project/tabbar/tab_view_two.dart';
 import 'package:flutter_widget_project/tinder_card_page.dart';
 import 'package:flutter_widget_project/widget/direct_select_flutter2_page.dart';
-import 'package:flutter_widget_project/widget/permission_view.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:provider/provider.dart';
 import 'direct_select_flutter_page.dart';
 import 'event_bus/event_bus_page.dart';
 import 'flutter_typed_head_page.dart';
@@ -76,10 +77,67 @@ class _PageTwoState extends State<PageTwo> {
     return Scaffold(
       appBar: AppBar(
         title: Text("TWO-PAGE"),
+        actions: [
+
+          Column(
+            children: [
+              InkWell(
+                child: Consumer<ThemeModel>(
+                  builder: (context , t , child){
+                    String type ;
+                    if(t.currentType == ThemeType.dark){
+                      type = "白天模式";
+                    }else{
+                      type = "夜间模式";
+                    }
+
+                    return Text("切换成$type");
+                  },
+
+                ),
+                onTap: ()=>Provider.of<ThemeModel>(context , listen: false).reserve(),
+              ),
+
+              InkWell(
+                ///前一个范型指的是哪一个model， 后一个指当前model的特定的值
+                child: Selector<ThemeModel , ThemeType>(
+                  builder: (context , themeType , child){
+                    String type ;
+                    if(themeType == ThemeType.dark){
+                      type = "白天模式";
+                    }else{
+                      type = "夜间模式";
+                    }
+
+                    return Text("切换成$type");
+                  },
+                  selector: (context , themeModel){
+                    return themeModel.currentType;
+                  },
+                  shouldRebuild: (pre , now){
+                    return pre != now;
+                  },
+
+                ),
+                onTap: ()=>Provider.of<ThemeModel>(context , listen: false).reserve(),
+              ),
+            ],
+          )
+        ],
       ),
-      body: SingleChildScrollView(
+      body:SingleChildScrollView(
         child: Column(
           children: [
+            Consumer<String>(
+              builder: (context , t  , child){
+                return Text("$t");
+              },
+            ),
+            Consumer<int>(
+              builder: (context , t  , child){
+                return Text("$t");
+              },
+            ),
             FlatButton(
               child: Text("获取联系人"),
               color: Color(0xffcccccc),

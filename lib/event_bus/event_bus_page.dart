@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_project/dio_util/constant.dart';
 import 'package:flutter_widget_project/event_bus/event_bus.dart';
@@ -55,6 +56,7 @@ class _EventBusPage2State extends State<EventBusPage2> {
   EventBus _eventBus = EventBus();
 
 
+
   @override
   void dispose() {
     // TODO: implement dispose
@@ -74,6 +76,7 @@ class _EventBusPage2State extends State<EventBusPage2> {
             color: Colors.blue,
             onPressed: (){
               _eventBus.send("login", ["zws", "123"]);
+
               Navigator.pop(context);
             },
           ),

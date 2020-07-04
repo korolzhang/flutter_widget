@@ -10,7 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_widget_project/page_one.dart';
 import 'package:flutter_widget_project/page_two.dart';
+import 'package:flutter_widget_project/provider/theme_model.dart';
 import 'package:flutter_widget_project/widget/radio_view.dart';
+import 'package:provider/provider.dart';
 import 'dart:math' as math;
 
 import 'dio_util/constant.dart';
@@ -19,11 +21,34 @@ import 'flutter_staggered_grid_page.dart';
 void main() {
   final game = MyGame();
 
-  runApp(MyApp());
+  runApp(
+    FutureProvider<String>(
+      create: (_){
+        return Future.delayed(Duration(seconds: 5),()=>"hello FutureProvider");
+      },
+      initialData: "哈哈",
+      child: StreamProvider<int>(
+        create: (context) {
+          return Stream.periodic(Duration(milliseconds: 300), (v){
+            return v*2;
+          }).take(10);
+        },
+        initialData: -1,
+        lazy: false,
+        updateShouldNotify: (_, __) => true,
+        child: ChangeNotifierProvider<ThemeModel>(
+          create: (_) {
+            return ThemeModel(ThemeType.dark);
+          },
+          child: MyApp(),
+        ),
+      ),
+    ),
+  );
   if (Platform.isAndroid) {
     // 以下两行 设置android状态栏为透明的沉浸。写在组件渲染之后，是为了在渲染后进行set赋值，覆盖状态栏，写在渲染之前MaterialApp组件会覆盖掉这个值。
     SystemUiOverlayStyle systemUiOverlayStyle =
-    SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+        SystemUiOverlayStyle(statusBarColor: Colors.transparent);
     SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
   }
 }
@@ -76,18 +101,14 @@ class MyGame extends BaseGame {
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-//      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       navigatorKey: navKey,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: Provider.of<ThemeModel>(context).themeData,
       home: PageTwo(),
-
     );
   }
 }
